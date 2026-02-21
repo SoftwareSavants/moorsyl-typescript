@@ -1,6 +1,6 @@
 {
   "name": "@moorsyl/sdk",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Official TypeScript SDK for the Moorsyl API — SMS, phone verification, and webhooks for Mauritania",
   "author": "Software Savants",
   "license": "MIT",
