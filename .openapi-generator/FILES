@@ -10,6 +10,7 @@ src/index.ts
 src/models/SmsGet200Response.ts
 src/models/SmsGetRequest.ts
 src/models/SmsSend200Response.ts
+src/models/SmsSend200ResponseNotice.ts
 src/models/SmsSendRequest.ts
 src/models/VerifyCheck200Response.ts
 src/models/VerifyCheckRequest.ts

@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { SmsSend200ResponseNotice } from './SmsSend200ResponseNotice';
+import {
+    SmsSend200ResponseNoticeFromJSON,
+    SmsSend200ResponseNoticeFromJSONTyped,
+    SmsSend200ResponseNoticeToJSON,
+    SmsSend200ResponseNoticeToJSONTyped,
+} from './SmsSend200ResponseNotice';
+
 /**
  * 
  * @export
@@ -30,6 +38,12 @@ export interface SmsSend200Response {
      * @type {string}
      * @memberof SmsSend200Response
      */
+    messageId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SmsSend200Response
+     */
     idempotencyKey: string;
     /**
      * 
@@ -37,6 +51,18 @@ export interface SmsSend200Response {
      * @memberof SmsSend200Response
      */
     organizationId: string;
+    /**
+     * The sender ID the message is sent with.
+     * @type {string}
+     * @memberof SmsSend200Response
+     */
+    from: string;
+    /**
+     * 
+     * @type {SmsSend200ResponseNotice}
+     * @memberof SmsSend200Response
+     */
+    notice?: SmsSend200ResponseNotice;
 }
 
 /**
@@ -44,8 +70,10 @@ export interface SmsSend200Response {
  */
 export function instanceOfSmsSend200Response(value: object): value is SmsSend200Response {
     if (!('accepted' in value) || value['accepted'] === undefined) return false;
+    if (!('messageId' in value) || value['messageId'] === undefined) return false;
     if (!('idempotencyKey' in value) || value['idempotencyKey'] === undefined) return false;
     if (!('organizationId' in value) || value['organizationId'] === undefined) return false;
+    if (!('from' in value) || value['from'] === undefined) return false;
     return true;
 }
 
@@ -60,8 +88,11 @@ export function SmsSend200ResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'accepted': json['accepted'],
+        'messageId': json['messageId'],
         'idempotencyKey': json['idempotencyKey'],
         'organizationId': json['organizationId'],
+        'from': json['from'],
+        'notice': json['notice'] == null ? undefined : SmsSend200ResponseNoticeFromJSON(json['notice']),
     };
 }
 
@@ -77,8 +108,11 @@ export function SmsSend200ResponseToJSONTyped(value?: SmsSend200Response | null,
     return {
         
         'accepted': value['accepted'],
+        'messageId': value['messageId'],
         'idempotencyKey': value['idempotencyKey'],
         'organizationId': value['organizationId'],
+        'from': value['from'],
+        'notice': SmsSend200ResponseNoticeToJSON(value['notice']),
     };
 }
 
