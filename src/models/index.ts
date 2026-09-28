@@ -3,6 +3,7 @@
 export * from './SmsGet200Response';
 export * from './SmsGetRequest';
 export * from './SmsSend200Response';
+export * from './SmsSend200ResponseNotice';
 export * from './SmsSendRequest';
 export * from './VerifyCheck200Response';
 export * from './VerifyCheckRequest';

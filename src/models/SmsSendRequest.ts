@@ -24,7 +24,7 @@ export interface SmsSendRequest {
      * @type {string}
      * @memberof SmsSendRequest
      */
-    to: string;
+    to?: string;
     /**
      * 
      * @type {string}
@@ -49,7 +49,6 @@ export interface SmsSendRequest {
  * Check if a given object implements the SmsSendRequest interface.
  */
 export function instanceOfSmsSendRequest(value: object): value is SmsSendRequest {
-    if (!('to' in value) || value['to'] === undefined) return false;
     if (!('body' in value) || value['body'] === undefined) return false;
     return true;
 }
@@ -64,7 +63,7 @@ export function SmsSendRequestFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'to': json['to'],
+        'to': json['to'] == null ? undefined : json['to'],
         'from': json['from'] == null ? undefined : json['from'],
         'body': json['body'],
         'idempotencyKey': json['idempotencyKey'] == null ? undefined : json['idempotencyKey'],
